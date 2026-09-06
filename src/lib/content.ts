@@ -123,7 +123,8 @@ export const testimonials = [
 export const plans = [
   {
     name: "Starter",
-    price: "$0",
+    monthlyPrice: "$0",
+    annualPrice: "$0",
     period: "forever",
     description: "For a small team trying automation for the first time.",
     features: [
@@ -136,8 +137,10 @@ export const plans = [
   },
   {
     name: "Team",
-    price: "$18",
+    monthlyPrice: "$18",
+    annualPrice: "$15",
     period: "per member / month",
+    annualPeriod: "per member / month (billed annually)",
     description: "For teams ready to automate the daily busywork.",
     features: [
       "Unlimited members",
@@ -150,7 +153,8 @@ export const plans = [
   },
   {
     name: "Enterprise",
-    price: "Custom",
+    monthlyPrice: "Custom",
+    annualPrice: "Custom",
     period: "billed annually",
     description: "For organizations with custom security and scale needs.",
     features: [
