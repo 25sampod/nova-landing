@@ -12,6 +12,9 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import { Analytics } from "@vercel/analytics/nuxt/runtime";
+import { SpeedInsights } from "@vercel/speed-insights/nuxt/runtime";
+
 
 export default function Home() {
   return (
@@ -32,6 +35,8 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
+      <Analytics/>
+      <SpeedInsights/>
     </>
   );
 }
