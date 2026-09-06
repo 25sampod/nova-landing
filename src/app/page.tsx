@@ -12,8 +12,8 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import { Analytics } from "@vercel/analytics/nuxt/runtime";
-import { SpeedInsights } from "@vercel/speed-insights/nuxt/runtime";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 export default function Home() {
