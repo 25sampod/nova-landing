@@ -9,15 +9,15 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 md:py-32">
       <div className="mx-auto max-w-3xl px-6">
-        <h2 className="font-display text-3xl md:text-4xl tracking-tight text-ink mb-14">
+        <h2 className="font-display text-3xl md:text-4xl tracking-tight text-[var(--ink)] mb-14">
           Questions teams ask before switching
         </h2>
 
-        <div className="border-t border-paper-line">
+        <div className="border-t border-[var(--paper-line)]">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div key={item.question} className="border-b border-paper-line">
+              <div key={item.question} className="border-b border-[var(--paper-line)]">
                 <h3>
                   <button
                     type="button"
@@ -27,11 +27,11 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     className="w-full flex items-center justify-between gap-6 py-6 text-left"
                   >
-                    <span className="font-display text-base md:text-lg text-ink">
+                    <span className="font-display text-base md:text-lg text-[var(--ink)]">
                       {item.question}
                     </span>
                     <span
-                      className="relative w-5 h-5 shrink-0 text-ink/60"
+                      className="relative w-5 h-5 shrink-0 text-[var(--ink)]/60"
                       aria-hidden
                     >
                       <span className="absolute inset-y-1/2 left-0 w-full h-px bg-current -translate-y-1/2" />
@@ -52,7 +52,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 pr-10 text-ink/65 leading-relaxed">
+                    <p className="pb-6 pr-10 text-[var(--ink)]/65 leading-relaxed">
                       {item.answer}
                     </p>
                   </div>

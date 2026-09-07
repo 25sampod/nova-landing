@@ -24,18 +24,18 @@ export default function WaitlistForm() {
           autoComplete="email"
           required
           placeholder="you@company.com"
-          className="min-w-0 flex-1 rounded-sm border border-ink-line bg-white/5 px-4 py-3 text-sm text-text-on-ink placeholder:text-text-on-ink-muted focus:border-amber focus:outline-none"
+          className="min-w-0 flex-1 rounded-sm border border-[var(--ink-line)] bg-white/5 px-4 py-3 text-sm text-[var(--text-on-ink)] placeholder:text-[var(--text-on-ink-muted)] focus:border-[var(--amber)] focus:outline-none"
         />
         <button
           type="submit"
-          className="inline-flex shrink-0 items-center justify-center rounded-sm bg-amber px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-paper"
+          className="inline-flex shrink-0 items-center justify-center rounded-sm bg-[var(--amber)] px-5 py-3 text-sm font-medium text-[var(--text-on-amber)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--text-on-paper)]"
         >
           Request access
         </button>
       </div>
       <p
         aria-live="polite"
-        className="min-h-5 text-xs text-text-on-ink-muted"
+        className="min-h-5 text-xs text-[var(--text-on-ink-muted)]"
         role="status"
       >
         {submitted

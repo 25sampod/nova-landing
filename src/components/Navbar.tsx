@@ -27,14 +27,14 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 border-b transition-colors ${
         scrolled || open
-          ? "bg-paper/95 backdrop-blur border-paper-line"
+          ? "bg-[var(--paper)]/95 backdrop-blur border-[var(--paper-line)]"
           : "bg-transparent border-transparent"
       }`}
     >
       <nav className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <a
           href="#top"
-          className="font-display font-semibold text-lg tracking-tight text-ink"
+          className="font-display font-semibold text-lg tracking-tight text-[var(--ink)]"
         >
           NOVA
         </a>
@@ -44,7 +44,7 @@ export default function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm text-ink/80 hover:text-ink transition-colors"
+                className="text-sm text-[var(--ink)]/80 hover:text-[var(--ink)] transition-colors"
               >
                 {item.label}
               </a>
@@ -57,24 +57,24 @@ export default function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            className="relative w-10 h-10 rounded-lg bg-paper-raised border border-paper-line flex items-center justify-center hover:bg-paper-line transition-colors"
+            className="relative w-10 h-10 rounded-lg bg-[var(--paper-raised)] border border-[var(--paper-line)] flex items-center justify-center hover:bg-[var(--paper-line)] transition-colors"
           >
             {theme === "light" ? (
-              <svg className="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-5 h-5 text-[var(--ink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             ) : (
-              <svg className="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-5 h-5 text-[var(--ink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             )}
           </button>
-          <a href="#" className="text-sm text-ink/80 hover:text-ink transition-colors">
+          <a href="#" className="text-sm text-[var(--ink)]/80 hover:text-[var(--ink)] transition-colors">
             Sign in
           </a>
           <a
             href="#pricing"
-            className="inline-flex items-center rounded-sm bg-ink text-paper text-sm font-medium px-4 py-2 hover:bg-amber-deep hover:text-ink transition-colors"
+            className="inline-flex items-center rounded-sm bg-[var(--ink)] text-[var(--text-on-ink)] text-sm font-medium px-4 py-2 hover:bg-[var(--amber-deep)] hover:text-[var(--text-on-amber)] transition-colors"
           >
             Start free trial
           </a>
@@ -89,17 +89,17 @@ export default function Navbar() {
           className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-[5px]"
         >
           <span
-            className={`block h-[2px] w-6 bg-ink transition-transform duration-200 ${
+            className={`block h-[2px] w-6 bg-[var(--ink)] transition-transform duration-200 ${
               open ? "translate-y-[7px] rotate-45" : ""
             }`}
           />
           <span
-            className={`block h-[2px] w-6 bg-ink transition-opacity duration-200 ${
+            className={`block h-[2px] w-6 bg-[var(--ink)] transition-opacity duration-200 ${
               open ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`block h-[2px] w-6 bg-ink transition-transform duration-200 ${
+            className={`block h-[2px] w-6 bg-[var(--ink)] transition-transform duration-200 ${
               open ? "-translate-y-[7px] -rotate-45" : ""
             }`}
           />
@@ -108,7 +108,7 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-paper border-t border-paper-line ${
+        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-[var(--paper)] border-t border-[var(--paper-line)] ${
           open ? "max-h-[28rem]" : "max-h-0"
         }`}
       >
@@ -118,7 +118,7 @@ export default function Navbar() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-base text-ink border-b border-paper-line last:border-none"
+                className="block py-3 text-base text-[var(--ink)] border-b border-[var(--paper-line)] last:border-none"
               >
                 {item.label}
               </a>
@@ -130,15 +130,15 @@ export default function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            className="flex items-center justify-between px-4 py-3 text-base text-ink border-b border-paper-line"
+            className="flex items-center justify-between px-4 py-3 text-base text-[var(--ink)] border-b border-[var(--paper-line)]"
           >
             <span>{theme === "light" ? "Dark mode" : "Light mode"}</span>
             {theme === "light" ? (
-              <svg className="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-5 h-5 text-[var(--ink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             ) : (
-              <svg className="w-5 h-5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-5 h-5 text-[var(--ink)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             )}
@@ -146,14 +146,14 @@ export default function Navbar() {
           <a
             href="#"
             onClick={() => setOpen(false)}
-            className="text-sm text-ink/80"
+            className="text-sm text-[var(--ink)]/80"
           >
             Sign in
           </a>
           <a
             href="#pricing"
             onClick={() => setOpen(false)}
-            className="inline-flex justify-center items-center rounded-sm bg-ink text-paper text-sm font-medium px-4 py-3 hover:bg-amber-deep hover:text-ink transition-colors"
+            className="inline-flex justify-center items-center rounded-sm bg-[var(--ink)] text-[var(--text-on-ink)] text-sm font-medium px-4 py-3 hover:bg-[var(--amber-deep)] hover:text-[var(--text-on-amber)] transition-colors"
           >
             Start free trial
           </a>

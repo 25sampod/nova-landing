@@ -11,6 +11,7 @@
   --text-on-paper-muted: #5c5f66;
   --text-on-ink: #f3f3ef;
   --text-on-ink-muted: #9a9da7;
+  --text-on-amber: #14171f;
   --amber: #e3a73b;
   --amber-deep: #c78b22;
   --teal: #1f6f5c;
@@ -20,19 +21,27 @@
 }
 
 .dark {
+  /* Surfaces */
+  --paper: #0b0d13;
+  --paper-raised: #141824;
+  --paper-line: #202738;
+
+  /* Typography: ink becomes crisp light text on dark background */
   --ink: #f3f3ef;
-  --ink-soft: #edeeea;
-  --ink-line: #d3d3c9;
-  --paper: #14171f;
-  --paper-raised: #1b1f29;
-  --paper-line: #2a2f3b;
+  --ink-soft: #1c2230;
+  --ink-line: #293246;
   --text-on-paper: #f3f3ef;
-  --text-on-paper-muted: #9a9da7;
-  --text-on-ink: #14171f;
-  --text-on-ink-muted: #5c5f66;
-  --amber: #e3a73b;
-  --amber-deep: #c78b22;
-  --teal: #1f6f5c;
+  --text-on-paper-muted: #9aa1b2;
+
+  /* Inverted button text & highlights */
+  --text-on-ink: #0b0d13;
+  --text-on-ink-muted: #9aa1b2;
+  --text-on-amber: #0b0d13;
+
+  /* Accents */
+  --amber: #f2b33d;
+  --amber-deep: #d89624;
+  --teal: #2dd4bf;
 }
 
 @theme inline {
@@ -70,7 +79,7 @@ h1, h2, h3, h4 {
 
 ::selection {
   background: var(--amber);
-  color: var(--ink);
+  color: var(--text-on-amber);
 }
 
 :focus-visible {
@@ -78,9 +87,22 @@ h1, h2, h3, h4 {
   outline-offset: 3px;
 }
 
-.on-ink {
+.on-ink,
+.section-ink {
   background: var(--ink);
   color: var(--text-on-ink);
+}
+
+.dark .on-ink,
+.dark.section-ink,
+.dark .section-ink {
+  background: #06070b;
+  color: #f3f3ef;
+  --ink: #111420;
+  --text-on-ink: #f3f3ef;
+  --text-on-ink-muted: #9aa1b2;
+  --ink-line: #1c2333;
+  --ink-soft: #141926;
 }
 
 .hairline {
@@ -89,6 +111,11 @@ h1, h2, h3, h4 {
 
 .on-ink .hairline,
 .section-ink .hairline {
+  border-color: var(--ink-line);
+}
+
+.dark .on-ink .hairline,
+.dark .section-ink .hairline {
   border-color: var(--ink-line);
 }
 

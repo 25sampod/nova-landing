@@ -8,20 +8,20 @@ export default function Testimonials() {
           Teams notice the difference in the first week
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-px bg-ink-line border border-ink-line">
+        <div className="grid md:grid-cols-3 gap-px bg-[var(--ink-line)] border border-[var(--ink-line)]">
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="bg-ink p-8 flex flex-col justify-between min-h-[240px]"
+              className="bg-[var(--ink)] p-8 flex flex-col justify-between min-h-[240px]"
             >
-              <blockquote className="text-text-on-ink/90 leading-relaxed">
+              <blockquote className="text-[var(--text-on-ink)]/90 leading-relaxed">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-8 pt-4 border-t border-ink-line">
-                <p className="text-sm font-medium text-text-on-ink">
+              <figcaption className="mt-8 pt-4 border-t border-[var(--ink-line)]">
+                <p className="text-sm font-medium text-[var(--text-on-ink)]">
                   {t.name}
                 </p>
-                <p className="text-sm text-text-on-ink-muted">{t.role}</p>
+                <p className="text-sm text-[var(--text-on-ink-muted)]">{t.role}</p>
               </figcaption>
             </figure>
           ))}

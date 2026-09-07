@@ -2,9 +2,9 @@ import { trustedBy } from "@/lib/content";
 
 export default function TrustedBy() {
   return (
-    <section className="overflow-hidden border-y border-paper-line py-10">
+    <section className="overflow-hidden border-y border-[var(--paper-line)] py-10">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-6 text-xs text-ink/45">
+        <p className="mb-6 text-xs text-[var(--ink)]/45">
           Trusted by teams who used to run this on spreadsheets
         </p>
       </div>
@@ -25,7 +25,7 @@ export default function TrustedBy() {
                     href={company.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-3 rounded-lg py-1 text-ink/55 transition-colors hover:text-ink"
+                    className="flex items-center gap-3 rounded-lg py-1 text-[var(--ink)]/55 transition-colors hover:text-[var(--ink)]"
                   >
                     {company.name === "Amazon" ? (
                       <svg

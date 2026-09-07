@@ -8,13 +8,13 @@ export default function FinalCTA() {
         <div className="flex flex-col sm:flex-row gap-4 shrink-0">
           <a
             href="#pricing"
-            className="inline-flex justify-center items-center rounded-sm bg-amber text-ink px-7 py-4 text-sm font-medium hover:bg-paper transition-colors"
+            className="inline-flex justify-center items-center rounded-sm bg-[var(--amber)] text-[var(--text-on-amber)] px-7 py-4 text-sm font-medium hover:bg-[var(--paper)] hover:text-[var(--text-on-paper)] transition-colors"
           >
             Start free trial
           </a>
           <a
             href="#product"
-            className="inline-flex justify-center items-center rounded-sm border border-ink-line px-7 py-4 text-sm font-medium text-text-on-ink hover:border-text-on-ink transition-colors"
+            className="inline-flex justify-center items-center rounded-sm border border-[var(--ink-line)] px-7 py-4 text-sm font-medium text-[var(--text-on-ink)] hover:border-[var(--text-on-ink)] transition-colors"
           >
             Talk to sales
           </a>
