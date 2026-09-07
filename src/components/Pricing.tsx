@@ -67,13 +67,26 @@ export default function Pricing() {
                 <p className="text-sm text-[var(--ink)]/55 mb-6 max-w-[24ch]">
                   {plan.description}
                 </p>
-                <div className="mb-6">
-                  <span className="font-display text-4xl text-[var(--ink)] tracking-tight">
-                    {price}
-                  </span>
-                  <span className="text-sm text-[var(--ink)]/50 ml-2">
-                    {period}
-                  </span>
+                <div className="mb-6 min-h-[4.25rem] flex flex-col justify-center">
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl text-[var(--ink)] tracking-tight">
+                      {price}
+                    </span>
+                    <span className="text-sm text-[var(--ink)]/50">
+                      {plan.name === "Team" ? "per member / month" : plan.period}
+                    </span>
+                  </div>
+                  <div className="h-4 mt-1">
+                    {isAnnual && plan.name === "Team" ? (
+                      <span className="text-xs text-[var(--amber-deep)] font-medium">
+                        Billed annually (save ~17%)
+                      </span>
+                    ) : (
+                      <span className="text-xs text-transparent select-none" aria-hidden="true">
+                        &nbsp;
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <ul className="flex flex-col gap-3 mb-8 flex-1">
                   {plan.features.map((f) => (
