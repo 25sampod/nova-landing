@@ -4,8 +4,9 @@ out/
 .env*
 *.log
 .DS_Store
-ai-brain.md
 .venv
 AGENTS.md
 CLAUDE.md
+ai-brain.md
+*.tsbuildinfo
 antigravity-claude-font.js

@@ -28,20 +28,20 @@ component so the code stays easy to read and explain.
 
 ## Features
 
-- 13 required sections: navigation, hero, trusted-by strip, features (6),
-  product/about, how it works, stats, solutions/use cases, testimonials (3),
+- **13 required sections**: navigation, hero, trusted-by strip, features (7),
+  product/about, how it works, stats, solutions/use cases, testimonials,
   pricing (3 plans), FAQ (6 questions), final CTA, footer.
-- Responsive navigation with a working mobile hamburger menu (animated icon,
-  slide-down panel, closes on link click, locks body scroll while open).
-- Smooth scrolling to in-page sections via anchor links.
-- Fully accessible FAQ accordion (`aria-expanded`, `aria-controls`,
-  `aria-labelledby`, keyboard-operable `<button>` elements).
-- Hover effects on buttons and cards throughout.
-- One deliberate load-in animation in the hero (a checklist ticking off
-  automatically) rather than scroll-triggered effects on every section.
-- Back-to-top button that appears after scrolling (bonus).
-- No horizontal scrolling or layout breakage from mobile (375px) through
-  desktop.
+- **8/8 Bonus features fully implemented**:
+  - **Dark/Light mode**: Persisted in `localStorage`, auto-detects `prefers-color-scheme`, synchronized theme transitions without flash.
+  - **Testimonial carousel**: Swipeable touch gestures, auto-rotation with hover/focus pause, keyboard navigation (`←`/`→`), and dot indicators.
+  - **Monthly/annual pricing toggle**: Interactive discount toggle with zero layout shift (`min-h` container).
+  - **Interactive demo modal**: Accessible walkthrough simulation modal (`Esc` to close, focus trap, multi-step simulation).
+  - **Newsletter / Waitlist validation**: Client-side feedback + Next.js API route (`/api/waitlist`) with RFC email validation.
+  - **Animated statistics**: Number callouts with amber accenting.
+  - **Scroll animations**: Load-in checklist ticking animations and draw-check SVGs.
+  - **Back-to-top button**: Floating button appearing smoothly after scrolling 800px.
+- **Responsive navigation**: Mobile hamburger menu (animated icon, slide-down panel, closes on link click, locks body scroll).
+- **Accessibility & SEO**: WCAG-compliant contrast, `aria-expanded`, `aria-controls`, `role="region"`, skip-to-content link, and JSON-LD schema.
 
 ## Installation instructions
 
@@ -65,26 +65,31 @@ Requires Node.js 18.18 or newer.
 ```
 src/
   app/
-    layout.tsx      # fonts, metadata, root HTML shell
-    page.tsx         # assembles all sections in order
-    globals.css       # design tokens (colors, fonts) + small utilities
+    api/waitlist/route.ts  # server-side email validation API
+    globals.css            # design tokens (colors, fonts, dark mode variables)
+    layout.tsx             # fonts, metadata, skip-link, root HTML shell
+    not-found.tsx          # branded custom 404 page
+    page.tsx               # assembles all sections in order
   components/
-    Navbar.tsx        # sticky nav + mobile hamburger menu
-    Hero.tsx           # headline, CTAs, animated checklist visual
-    TrustedBy.tsx       # logo strip
-    Features.tsx         # flagship feature + grid of 6
-    Product.tsx           # dark section with board mockup
-    HowItWorks.tsx          # 4-step numbered sequence
-    Stats.tsx                 # 4 stat callouts
-    Solutions.tsx               # use-case list by team
-    Testimonials.tsx              # 3 testimonial cards
-    Pricing.tsx                    # 3 plans
-    FAQ.tsx                         # accessible accordion
-    FinalCTA.tsx                     # closing call to action
-    Footer.tsx                        # link columns + legal
-    BackToTop.tsx                      # scroll-to-top button
+    BackToTop.tsx          # floating scroll-to-top button
+    DemoModal.tsx          # interactive product walkthrough tour
+    FAQ.tsx                # accessible accordion
+    Features.tsx           # flagship feature + hairline grid
+    FinalCTA.tsx           # closing call to action + waitlist section
+    Footer.tsx             # link columns + legal notices
+    Hero.tsx               # headline, CTAs, animated checklist visual
+    HowItWorks.tsx         # 4-step numbered sequence
+    Navbar.tsx             # sticky nav + mobile drawer + theme toggle
+    Pricing.tsx            # 3 plans with monthly/annual toggle
+    Product.tsx            # dark section with live board mockup
+    Solutions.tsx          # use-case list by team
+    Stats.tsx              # 4 stat callouts
+    Testimonials.tsx       # accessible interactive carousel
+    ThemeProvider.tsx      # context provider for light/dark theme
+    TrustedBy.tsx          # logo strip with marquee animation
+    WaitlistForm.tsx       # validated email capture form
   lib/
-    content.ts        # all copy/data, kept separate from markup
+    content.ts             # centralized content data
 ```
 
 ## Screenshots

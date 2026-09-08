@@ -7,116 +7,371 @@ export const nav = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export const trustedBy = [
-  { name: "Google", icon: "logos:google-icon", url: "https://google.com" },
-  { name: "Microsoft", icon: "logos:microsoft-icon", url: "https://microsoft.com" },
-  { name: "Apple", icon: "logos:apple", url: "https://apple.com" },
-  { name: "Amazon", icon: "logos:amazon-pay", url: "https://amazon.com" },
-  { name: "Meta", icon: "logos:meta-icon", url: "https://meta.com" },
-  { name: "Notion", icon: "logos:notion-icon", url: "https://notion.so" },
-  { name: "GitHub", icon: "logos:github-icon", url: "https://github.com" },
-  { name: "Slack", icon: "logos:slack-icon", url: "https://slack.com" },
-  { name: "Spotify", icon: "logos:spotify-icon", url: "https://spotify.com" },
-  { name: "Netflix", icon: "logos:netflix-icon", url: "https://netflix.com" },
-  { name: "Airbnb", icon: "logos:airbnb-icon", url: "https://airbnb.com" },
-  { name: "Salesforce", icon: "logos:salesforce", url: "https://salesforce.com" },
-];
+export interface Feature {
+  title: string;
+  body: string;
+  tag: string;
+  icon: string;
+  big?: boolean;
+}
 
-export const features = [
+export const features: Feature[] = [
   {
-    title: "Task automation",
-    body: "Turn a repeated three-step process into a rule once, and NOVA runs it the same way every time.",
+    title: "Visual workflow orchestration",
+    body: "Build reliable automated pipelines connecting triggers, business logic, and actions on an intuitive canvas — or customize steps with code when you need precision.",
+    tag: "Visual Builder",
+    icon: "zap",
     big: true,
   },
   {
-    title: "Smart scheduling",
-    body: "NOVA reads everyone's calendar and workload before it proposes a meeting time.",
+    title: "200+ native integrations",
+    body: "Connect GitHub, Slack, Linear, Jira, Postgres, Stripe, and your internal APIs with zero-maintenance webhooks.",
+    tag: "Ecosystem",
+    icon: "plug",
   },
   {
-    title: "Live project boards",
-    body: "Every board updates the moment someone finishes a task, so status meetings get shorter.",
+    title: "Custom code & data transformations",
+    body: "Write JavaScript or Python directly in any workflow step to parse complex JSON payloads, query databases, or execute custom algorithms.",
+    tag: "Code Flexibility",
+    icon: "code",
   },
   {
-    title: "Automated summaries",
-    body: "Long threads get compressed into a few lines, with the decision highlighted.",
+    title: "Human-in-the-loop approvals",
+    body: "Pause automated executions to collect review or manager signoff via interactive Slack buttons or email before resuming.",
+    tag: "Governance",
+    icon: "shield",
   },
   {
-    title: "Workload balancing",
-    body: "See who's overloaded before a deadline slips, not after.",
+    title: "Resilient streaming & retries",
+    body: "Sub-second webhook event ingestion paired with automated exponential backoff and dead-letter queues to safeguard against downstream outages.",
+    tag: "High Availability",
+    icon: "repeat",
   },
   {
-    title: "Custom workflows",
-    body: "Build a workflow by dragging steps into order — no code required.",
+    title: "Intelligent task routing",
+    body: "Automatically route incidents, code reviews, and customer inquiries to the right team member based on real-time availability.",
+    tag: "Smart Routing",
+    icon: "users",
   },
   {
-    title: "Integrations",
-    body: "Connect the tools your team already uses; NOVA fits into existing habits.",
+    title: "Immutable audit logging",
+    body: "Every automated trigger and execution is preserved with complete payloads, execution history, and 1-click rollback.",
+    tag: "Security & SOC 2",
+    icon: "sliders",
   },
 ];
 
-export const steps = [
+export interface Step {
+  title: string;
+  body: string;
+  tag: string;
+  badge: string;
+  highlight: string;
+}
+
+export const steps: Step[] = [
   {
-    title: "Connect your tools",
-    body: "Link your calendar, chat and file storage. NOVA reads what's already there — nothing to re-enter.",
+    title: "Connect your stack",
+    body: "Authenticate your daily tools in one click — GitHub, Slack, Linear, databases, and custom APIs. Zero complex configuration.",
+    tag: "01 / Connect",
+    badge: "200+ Integrations",
+    highlight: "OAuth 2.0 & instant webhooks",
   },
   {
-    title: "Set up your workflows",
-    body: "Describe a process once, or pick a template. NOVA turns it into a repeatable rule.",
+    title: "Define your triggers",
+    body: "Initiate workflows from webhooks, schedules, app events, or form submissions without writing polling scripts.",
+    tag: "02 / Build",
+    badge: "Instant triggers",
+    highlight: "Visual rule builder",
   },
   {
-    title: "Let automation run",
-    body: "Routine steps happen on their own: reminders sent, boards updated, summaries written.",
+    title: "Automate multi-step logic",
+    body: "Branch conditions, transform data, route human approvals, and execute tasks across services seamlessly.",
+    tag: "03 / Automate",
+    badge: "Multi-step logic",
+    highlight: "Visual task & approval routing",
   },
   {
-    title: "Review and adjust",
-    body: "Weekly digests show what ran, what needs a human decision, and where time was saved.",
+    title: "Monitor and report",
+    body: "Track automated executions, inspect audit trails, and review weekly summaries of team hours saved.",
+    tag: "04 / Track",
+    badge: "Live analytics",
+    highlight: "Quantified hours saved",
   },
 ];
 
 export const stats = [
-  { value: "6.4", suffix: "hrs", label: "saved per person, per week" },
-  { value: "312", suffix: "", label: "teams running on NOVA" },
-  { value: "94", suffix: "%", label: "of routine tasks automated" },
-  { value: "2.1", suffix: "×", label: "faster project turnaround" },
+  { value: "99.99", suffix: "%", label: "execution reliability & uptime" },
+  { value: "10M+", suffix: "", label: "workflow runs executed monthly" },
+  { value: "4.8", suffix: "hrs", label: "saved per teammate, every week" },
+  { value: "500+", suffix: "", label: "pre-built automation templates" },
 ];
 
-export const solutions = [
+export interface SolutionWorkflow {
+  name: string;
+  time: string;
+}
+
+export interface Solution {
+  id: string;
+  role: string;
+  headline: string;
+  description: string;
+  tools: string[];
+  metric: string;
+  metricLabel: string;
+  workflows: SolutionWorkflow[];
+}
+
+export const solutions: Solution[] = [
   {
-    title: "Product teams",
-    body: "Turn a roadmap into sprints automatically, and let NOVA flag scope creep before it ships.",
+    id: "engineering",
+    role: "Engineering Teams",
+    headline: "Continuous PR triage, automated CI gates, and zero duplicate tracking.",
+    description: "Connect your GitHub, GitLab, Linear, and Datadog workspaces. NOVA inspects commits, balances code review loads, resolves blockers, and updates issue boards automatically.",
+    tools: ["GitHub", "GitLab", "Linear", "Datadog"],
+    metric: "84% reduction",
+    metricLabel: "in release cycle turnaround",
+    workflows: [
+      { name: "Automated PR Triage & Routing", time: "On PR Open" },
+      { name: "Blast Radius & Security Pre-check", time: "Post-CI" },
+      { name: "Release Broadcast to Slack", time: "On Merge" },
+    ],
   },
   {
-    title: "Marketing teams",
-    body: "Coordinate campaigns across channels with one calendar that updates itself.",
+    id: "product",
+    role: "Product Teams",
+    headline: "Automate sprint handoffs, dependency tracking, and release notes.",
+    description: "NOVA turns high-level roadmap initiatives into estimated sprint backlogs, flags scope creep before shipping, and automatically keeps design and engineering aligned.",
+    tools: ["Linear", "Figma", "Jira", "Notion"],
+    metric: "4.5 hrs saved",
+    metricLabel: "per sprint planning cycle",
+    workflows: [
+      { name: "PRD to Sprint Breakdown", time: "Instant" },
+      { name: "Automated Release Notes", time: "On Merge" },
+      { name: "Cross-Functional Dependency Sync", time: "Continuous" },
+    ],
   },
   {
-    title: "Operations teams",
-    body: "Route approvals, chase signatures and close the loop without a spreadsheet.",
+    id: "operations",
+    role: "Operations Teams",
+    headline: "Route approvals, eliminate spreadsheets, and close loops effortlessly.",
+    description: "Set up multi-stage financial and legal approval paths. NOVA requests signatures, monitors budget thresholds, and maintains an immutable audit trail.",
+    tools: ["Google Workspace", "QuickBooks", "Slack", "DocuSign"],
+    metric: "6 minutes",
+    metricLabel: "average approval turnaround (was 4 days)",
+    workflows: [
+      { name: "Budget Policy Auto-Verification", time: "Instant" },
+      { name: "1-Click Slack Executive Signoff", time: "On Demand" },
+      { name: "Compliance & SOC 2 Audit Logging", time: "Automated" },
+    ],
   },
   {
-    title: "Engineering teams",
-    body: "Sync tickets across repos and standups so nothing gets tracked twice.",
+    id: "marketing",
+    role: "Marketing Teams",
+    headline: "Coordinate multi-channel campaigns with one live calendar.",
+    description: "Align copywriters, designers, and growth managers around a unified release timeline that self-adjusts whenever product milestones change.",
+    tools: ["HubSpot", "Figma", "Asana", "Typeform"],
+    metric: "2.4x faster",
+    metricLabel: "asset production & campaign launch",
+    workflows: [
+      { name: "Asset Review Routing", time: "Auto-Assigned" },
+      { name: "Self-Updating Campaign Calendar", time: "Real-Time" },
+      { name: "Launch Readiness Checklist", time: "Continuous" },
+    ],
+  },
+];
+
+export interface WorkflowNode {
+  id: string;
+  stepLabel: string;
+  title: string;
+  service: string;
+  summary: string;
+  status: "success" | "active" | "queued";
+}
+
+export interface WorkflowScenario {
+  id: string;
+  name: string;
+  badge: string;
+  description: string;
+  nodes: WorkflowNode[];
+}
+
+export const workflowScenarios: WorkflowScenario[] = [
+  {
+    id: "release-pipeline",
+    name: "Release & Deploy",
+    badge: "Engineering",
+    description: "Verify code, update sprint boards, and notify the team when a PR is merged.",
+    nodes: [
+      {
+        id: "node-1",
+        stepLabel: "1. Trigger",
+        title: "PR Merged in GitHub",
+        service: "GitHub",
+        summary: "Triggers automatically when code is approved and merged into main",
+        status: "success",
+      },
+      {
+        id: "node-2",
+        stepLabel: "2. Test",
+        title: "Run Quality Gates",
+        service: "Security Check",
+        summary: "Runs test suite and verifies zero vulnerabilities before deploy",
+        status: "success",
+      },
+      {
+        id: "node-3",
+        stepLabel: "3. Update",
+        title: "Update Linear Board",
+        service: "Linear",
+        summary: "Transitions all linked project tickets to Done automatically",
+        status: "success",
+      },
+      {
+        id: "node-4",
+        stepLabel: "4. Notify",
+        title: "Broadcast to Slack",
+        service: "Slack",
+        summary: "Posts release notes directly to the team announcements channel",
+        status: "success",
+      },
+    ],
+  },
+  {
+    id: "customer-provisioning",
+    name: "Customer Onboarding",
+    badge: "Operations",
+    description: "Create customer workspaces, update CRM accounts, and alert the team upon new subscription.",
+    nodes: [
+      {
+        id: "node-1",
+        stepLabel: "1. Trigger",
+        title: "Customer Subscribes",
+        service: "Stripe",
+        summary: "Triggers the moment a customer completes checkout or upgrades",
+        status: "success",
+      },
+      {
+        id: "node-2",
+        stepLabel: "2. Create",
+        title: "Build Notion Hub",
+        service: "Notion",
+        summary: "Generates a private onboarding document with guides and templates",
+        status: "success",
+      },
+      {
+        id: "node-3",
+        stepLabel: "3. Sync",
+        title: "Sync CRM Account",
+        service: "HubSpot",
+        summary: "Updates customer lifecycle stage and records subscription tier",
+        status: "success",
+      },
+      {
+        id: "node-4",
+        stepLabel: "4. Notify",
+        title: "Alert Success Team",
+        service: "Slack",
+        summary: "Sends customer profile and kickoff brief to #customer-success",
+        status: "success",
+      },
+    ],
+  },
+  {
+    id: "incident-remediation",
+    name: "Incident Response",
+    badge: "Reliability",
+    description: "Detect error spikes, page the on-call engineer, and spin up an incident room instantly.",
+    nodes: [
+      {
+        id: "node-1",
+        stepLabel: "1. Trigger",
+        title: "Error Spike Detected",
+        service: "Datadog",
+        summary: "Monitors production error rate and triggers when thresholds exceed limits",
+        status: "success",
+      },
+      {
+        id: "node-2",
+        stepLabel: "2. Escalate",
+        title: "Page On-Call Engineer",
+        service: "PagerDuty",
+        summary: "Identifies the active on-call engineer and sends urgent page",
+        status: "success",
+      },
+      {
+        id: "node-3",
+        stepLabel: "3. Collaborate",
+        title: "Open Incident Channel",
+        service: "Slack",
+        summary: "Creates dedicated incident room and invites relevant responders",
+        status: "success",
+      },
+      {
+        id: "node-4",
+        stepLabel: "4. Track",
+        title: "Log Tracking Ticket",
+        service: "Linear",
+        summary: "Creates high-priority issue with logs and post-mortem template attached",
+        status: "success",
+      },
+    ],
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "We cut our weekly status meeting from an hour to twelve minutes. The board already says what happened.",
+      "We replaced twelve fragile Zapier zaps and a tangled cron script with NOVA. Our incident triage time dropped from 25 minutes to 30 seconds.",
+    name: "Marcus Vance",
+    role: "VP of Engineering",
+    company: "OrbitScale",
+    companyBadge: "OS",
+    metric: "-98%",
+    metricLabel: "incident triage time",
+  },
+  {
+    quote:
+      "The bi-directional sync between GitHub PRs and our Linear boards eliminated our Monday morning status sync entirely. Everyone just knows what’s shipping.",
     name: "Priya Nandan",
-    role: "Head of Product, Halcyon Foods",
+    role: "Head of Product",
+    company: "Halcyon Systems",
+    companyBadge: "HS",
+    metric: "-80%",
+    metricLabel: "status meeting overhead",
   },
   {
     quote:
-      "NOVA caught a scheduling conflict across three time zones before any of us noticed it.",
+      "Our cross-department invoice and contract signoffs used to take 4 days. NOVA routes them to the right lead in under a minute with complete audit trails.",
+    name: "Sarah Chen",
+    role: "COO",
+    company: "Kinetix Labs",
+    companyBadge: "KL",
+    metric: "< 60s",
+    metricLabel: "approval turnaround",
+  },
+  {
+    quote:
+      "The sub-second webhook triggers and automatic retry policies give us enterprise reliability without managing our own queue infrastructure.",
     name: "Tomas Reyes",
-    role: "Operations Lead, Redline Logistics",
+    role: "Platform Architect",
+    company: "Redline Logistics",
+    companyBadge: "RL",
+    metric: "99.99%",
+    metricLabel: "pipeline execution rate",
   },
   {
     quote:
-      "Our onboarding checklist used to live in someone's head. Now it runs itself, the same way, every time.",
+      "Our new-hire developer onboarding used to require manual checklists across four tools. Now it executes automatically on the employee start date.",
     name: "Freya Lindqvist",
-    role: "People Ops, Nordlicht Studio",
+    role: "Head of People Ops",
+    company: "Nordlicht Studio",
+    companyBadge: "NS",
+    metric: "100%",
+    metricLabel: "automated compliance",
   },
 ];
 
@@ -126,12 +381,13 @@ export const plans = [
     monthlyPrice: "$0",
     annualPrice: "$0",
     period: "forever",
-    description: "For a small team trying automation for the first time.",
+    description: "For individual builders and small teams automating their first workflows.",
     features: [
-      "Up to 5 members",
-      "3 active workflows",
-      "Live project boards",
+      "Up to 5 team members",
+      "1,000 workflow runs / month",
+      "5 active workflows",
       "Community support",
+      "Standard integrations",
     ],
     highlighted: false,
   },
@@ -141,13 +397,14 @@ export const plans = [
     annualPrice: "$15",
     period: "per member / month",
     annualPeriod: "per member / month (billed annually)",
-    description: "For teams ready to automate the daily busywork.",
+    description: "For growing teams that need reliable cross-functional automation.",
     features: [
-      "Unlimited members",
-      "Unlimited workflows",
-      "Smart scheduling",
-      "Workload balancing",
-      "Priority support",
+      "Unlimited team members",
+      "50,000 workflow runs / month",
+      "Unlimited active workflows",
+      "Intelligent task & approval routing",
+      "Priority email & chat support",
+      "30-day execution audit logs",
     ],
     highlighted: true,
   },
@@ -156,13 +413,14 @@ export const plans = [
     monthlyPrice: "Custom",
     annualPrice: "Custom",
     period: "billed annually",
-    description: "For organizations with custom security and scale needs.",
+    description: "For organizations requiring custom scale, security, and dedicated infrastructure.",
     features: [
-      "Everything in Team",
-      "Single sign-on",
-      "Audit logs",
-      "Dedicated onboarding",
-      "99.9% uptime SLA",
+      "Unlimited workflow executions",
+      "SAML SSO & SCIM directory sync",
+      "Dedicated infrastructure & custom SLA",
+      "Full HIPAA & SOC 2 compliance reports",
+      "Dedicated solutions architect",
+      "Custom VPC & on-prem deployment options",
     ],
     highlighted: false,
   },
@@ -170,34 +428,34 @@ export const plans = [
 
 export const faqs = [
   {
-    question: "How long does it take to set up NOVA?",
+    question: "How does NOVA compare to traditional automation tools?",
     answer:
-      "Most teams connect their tools and launch their first workflow within an afternoon. Templates cover the most common processes, so you rarely start from a blank page.",
+      "Traditional tools are built for simple point-to-point triggers. NOVA combines visual workflow orchestration with custom code execution (JavaScript/Python), sub-second bi-directional sync (GitHub, Linear, Jira), and native human-in-the-loop approval routing. It's engineered specifically for high-velocity software and operations teams.",
   },
   {
-    question: "Does NOVA replace our project management tool?",
+    question: "How long does it take to connect our existing tools?",
     answer:
-      "It can, but it doesn't have to. NOVA connects to the tools you already use and adds automation and reporting on top, so you can migrate at your own pace.",
+      "Most teams connect their core services (GitHub, Slack, Linear, Jira, databases) and launch their first active workflow in under 15 minutes. We provide pre-built workflow templates for common patterns so you never have to start from a blank canvas.",
   },
   {
-    question: "What happens to our data if we cancel?",
+    question: "How does NOVA handle approvals that require human decisions?",
     answer:
-      "You can export every board, workflow and report at any time. After cancellation, we keep your data for 30 days before deleting it permanently.",
+      "Workflows can pause at any step and route interactive approval cards directly to Slack, email, or your team dashboard. Once the approver clicks approve or reject, the workflow resumes immediately with a full audit log entry.",
   },
   {
-    question: "Can NOVA handle approvals that need a human decision?",
+    question: "How does NOVA secure our credentials and sensitive data?",
     answer:
-      "Yes. Workflows can pause at any step and route to a specific person for approval, with reminders sent automatically until it's resolved.",
+      "All credentials and connection tokens are encrypted with AES-256 at rest and TLS 1.3 in transit. We maintain SOC 2 Type II compliance, enforce role-based access control (RBAC), and never train AI models on customer payloads or source code.",
   },
   {
-    question: "Is there a limit to how many workflows we can automate?",
+    question: "What happens if an external API or service experiences downtime?",
     answer:
-      "Starter includes three active workflows. Team and Enterprise plans include unlimited workflows, so you can automate as many processes as make sense for your team.",
+      "NOVA automatically retries failed steps using intelligent exponential backoff. If a service remains unreachable, the execution is queued safely in a dead-letter state and your team is notified immediately via Slack or PagerDuty.",
   },
   {
-    question: "Do you offer discounts for nonprofits or students?",
+    question: "Can we export our workflows and data if we decide to cancel?",
     answer:
-      "Yes. Verified nonprofits and educational teams receive 40% off the Team plan. Reach out to our support team with your verification to get started.",
+      "Yes. You have full data portability. You can export all workflow configurations, rule logic, execution logs, and audit trails as standard JSON or CSV at any time with zero vendor lock-in.",
   },
 ];
 
@@ -218,6 +476,6 @@ export const footerLinks = {
     { label: "FAQ", href: "#faq" },
     { label: "Documentation", href: "#" },
     { label: "Community", href: "#" },
-    { label: "Status", href: "#" },
+    { label: "System Status", href: "#" },
   ],
 };
