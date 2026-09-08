@@ -94,18 +94,14 @@ src/
 
 ## Screenshots
 
-Add screenshots here after deploying (desktop, tablet and mobile views),
-for example:
+Here is a preview of the responsive layout across different screen sizes:
 
-```
 ![Desktop hero](./screenshots/desktop-hero.png)
-![Mobile menu](./screenshots/mobile-menu.png)
-```
+![Mobile view](./screenshots/mobile-view.png)
 
 ## Live demo URL
 
-_Add your deployed URL here after publishing to Vercel, Netlify, GitHub
-Pages or Cloudflare Pages, e.g._: `https://nova-landing.vercel.app`
+The landing page is live and deployed at: `https://nova.sampod.site`
 
 ## AI tools used
 
