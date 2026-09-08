@@ -64,13 +64,27 @@ export default function Hero() {
         <div className="w-full min-w-0">
 
           <h1 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[1.12] sm:leading-[1.08] tracking-tight text-[var(--ink)] font-semibold max-w-2xl break-words">
-            Automate workflows. Connect your stack. Ship faster.
+            <span className="inline-block overflow-hidden pb-1 sm:pb-1.5 -mb-1 sm:-mb-1.5 align-top">
+              <span className="inline-block animate-kinetic-1">
+                Automate workflows.
+              </span>
+            </span>{" "}
+            <span className="inline-block overflow-hidden pb-1 sm:pb-1.5 -mb-1 sm:-mb-1.5 align-top">
+              <span className="inline-block animate-kinetic-2">
+                Connect your stack.
+              </span>
+            </span>{" "}
+            <span className="inline-block overflow-hidden pb-1 sm:pb-1.5 -mb-1 sm:-mb-1.5 align-top">
+              <span className="inline-block animate-kinetic-3">
+                Ship faster.
+              </span>
+            </span>
           </h1>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-[var(--ink)]/75 max-w-xl leading-relaxed break-words">
+          <p className="animate-hero-subtext mt-4 sm:mt-5 text-base sm:text-lg text-[var(--ink)]/75 max-w-xl leading-relaxed break-words">
             NOVA connects your team&apos;s daily tools into reliable, automated pipelines. Eliminate repetitive status updates, route approvals instantly, and keep engineering, product, and operations in continuous alignment.
           </p>
 
-          <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4">
+          <div className="animate-hero-cta mt-6 sm:mt-8 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4">
             <a
               href="#pricing"
               className="inline-flex justify-center items-center rounded-lg bg-[var(--amber)] text-[var(--text-on-amber)] px-6 py-3.5 text-sm font-semibold hover:bg-[var(--amber-deep)] active:scale-[0.98] transition-all shadow-xs cursor-pointer min-h-[48px]"
@@ -92,7 +106,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[var(--ink)]/55">
+          <div className="animate-hero-cta mt-4 sm:mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[var(--ink)]/55">
             <span className="flex items-center gap-1.5">
               <svg className="w-3.5 h-3.5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -107,8 +121,22 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Clean Workflow Automation Preview */}
-        <div className="relative w-full min-w-0 max-w-2xl lg:max-w-none mx-auto lg:translate-y-10">
-          <div className="rounded-xl sm:rounded-2xl border border-[var(--paper-line)] bg-[var(--paper-raised)] shadow-xl overflow-hidden">
+        <div className="relative w-full min-w-0 max-w-2xl lg:max-w-none mx-auto lg:translate-y-10 animate-hero-card">
+          {/* Ambient Glow Backdrop */}
+          <div
+            aria-hidden="true"
+            className="ambient-glow-backdrop absolute -inset-3 sm:-inset-6 rounded-3xl bg-gradient-to-tr from-[var(--amber)]/15 via-teal-500/10 to-indigo-500/15 blur-2xl -z-10 pointer-events-none"
+          />
+
+          <div className="relative rounded-xl sm:rounded-2xl border border-[var(--paper-line)] bg-[var(--paper-raised)] shadow-xl overflow-hidden">
+            {/* Ambient Beam Sweep Light Effect */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-20 overflow-hidden"
+            >
+              <div className="animate-beam-sweep w-3/4 h-full bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent" />
+            </div>
+
             {/* Window Chrome Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--paper-line)] bg-[var(--paper)]">
               <div className="flex items-center gap-2 min-w-0">

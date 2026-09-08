@@ -405,6 +405,141 @@ h1, h2, h3, h4 {
 
 
 
+/* ─── Hero Load / Reload Animations (Kinetic & Ambient Glow) ────────── */
+@keyframes kinetic-up {
+  0% {
+    opacity: 0;
+    transform: translateY(105%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-glow-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes beam-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-kinetic-1 {
+  animation: kinetic-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards;
+}
+
+.animate-kinetic-2 {
+  animation: kinetic-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.18s backwards;
+}
+
+.animate-kinetic-3 {
+  animation: kinetic-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.32s backwards;
+}
+
+.animate-hero-subtext {
+  animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.44s backwards;
+}
+
+.animate-hero-cta {
+  animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.56s backwards;
+}
+
+.animate-hero-card {
+  animation: hero-fade-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+}
+
+.animate-beam-sweep {
+  animation: beam-sweep 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+
+.ambient-glow-backdrop {
+  animation: card-glow-pulse 7s ease-in-out infinite;
+}
+
+/* ─── Option 1: Sequential Step Cascade Animations ───────────────────── */
+@keyframes step-cascade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-hero-headline {
+  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards;
+}
+
+.animate-hero-badges {
+  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.38s backwards;
+}
+
+.animate-step-1 {
+  animation: step-cascade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards;
+}
+
+.animate-arrow-1 {
+  animation: step-cascade 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.32s backwards;
+}
+
+.animate-step-2 {
+  animation: step-cascade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.38s backwards;
+}
+
+.animate-arrow-2 {
+  animation: step-cascade 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.48s backwards;
+}
+
+.animate-step-3 {
+  animation: step-cascade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.54s backwards;
+}
+
+.animate-arrow-3 {
+  animation: step-cascade 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.64s backwards;
+}
+
+.animate-step-4 {
+  animation: step-cascade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.70s backwards;
+}
+
+.animate-card-footer {
+  animation: hero-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.82s backwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-left,
@@ -414,6 +549,24 @@ h1, h2, h3, h4 {
   .animate-ping-slow,
   .animate-pulse-subtle,
   .animate-num-fade,
+  .animate-kinetic-1,
+  .animate-kinetic-2,
+  .animate-kinetic-3,
+  .animate-hero-headline,
+  .animate-hero-subtext,
+  .animate-hero-cta,
+  .animate-hero-badges,
+  .animate-hero-card,
+  .animate-step-1,
+  .animate-step-2,
+  .animate-step-3,
+  .animate-step-4,
+  .animate-arrow-1,
+  .animate-arrow-2,
+  .animate-arrow-3,
+  .animate-card-footer,
+  .animate-beam-sweep,
+  .ambient-glow-backdrop,
   .reveal-stagger > * {
     opacity: 1 !important;
     transform: none !important;
