@@ -96,9 +96,18 @@ src/
 
 Here is a preview of the responsive layout across different screen sizes:
 
-![Desktop hero](./screenshots/desktop-hero.png)
-![Mobile view](./screenshots/mobile-view.png)
-![Tablet View](./screenshots/tab-view.png)
+<table width="100%">
+  <tr>
+    <th width="50%">Desktop View</th>
+    <th width="30%">Tablet View</th>
+    <th width="20%">Mobile View</th>
+  </tr>
+  <tr>
+    <td valign="top"><img src="./screenshots/desktop-hero.png" width="100%" alt="Desktop hero" /></td>
+    <td valign="top"><img src="./screenshots/tab-view.png" width="100%" alt="Tablet view" /></td>
+    <td valign="top"><img src="./screenshots/mobile-view.png" width="100%" alt="Mobile view" /></td>
+  </tr>
+</table>
 
 ## Live demo URL
 
