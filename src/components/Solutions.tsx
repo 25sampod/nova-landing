@@ -46,13 +46,14 @@ export default function Solutions() {
         <Reveal className="w-full">
           <div
             ref={scrollContainerRef}
-            className="-mx-4 sm:mx-0 overflow-x-auto scrollbar-none pb-3 pt-1 scroll-smooth snap-x snap-proximity scroll-px-4 relative"
+            className="-mx-4 sm:mx-0 overflow-x-auto scrollbar-none pb-3 pt-1 scroll-smooth snap-x snap-proximity scroll-px-4 relative flex"
           >
-            <div className="inline-flex justify-start sm:justify-center min-w-full px-4 sm:px-0 w-max">
+            <div className="flex min-w-full px-4 sm:px-0 w-max">
+              <div className="flex-1" aria-hidden="true"></div>
               <div
                 role="tablist"
                 aria-label="Department Solutions"
-                className="inline-flex p-1.5 rounded-xl bg-[var(--paper-raised)] border border-[var(--paper-line)] gap-1.5 shadow-2xs"
+                className="inline-flex p-1.5 rounded-xl bg-[var(--paper-raised)] border border-[var(--paper-line)] gap-1.5 shadow-2xs shrink-0"
               >
                 {solutions.map((item, idx) => {
                   const isActive = activeTab === idx;
@@ -79,6 +80,7 @@ export default function Solutions() {
                   );
                 })}
               </div>
+              <div className="flex-1" aria-hidden="true"></div>
             </div>
           </div>
         </Reveal>
