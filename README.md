@@ -39,5 +39,5 @@ npm run dev
 The landing page is live and deployed at: **[https://nova.sampod.site](https://nova.sampod.site)**
 
 ## AI tools used
- **Claude** 
+ **Claude** & 
  **Gemini**
