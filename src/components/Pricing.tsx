@@ -70,14 +70,14 @@ export default function Pricing() {
             return (
               <div
                 key={plan.name}
-                className={`rounded-2xl p-5 sm:p-7 md:px-5 md:py-6 lg:p-8 flex flex-col justify-between relative transition-all duration-200 min-w-0 ${
+                className={`rounded-2xl p-5 sm:p-7 md:px-5 md:py-6 lg:p-8 flex flex-col justify-between relative min-w-0 transform-gpu transition-all duration-350 ease-[cubic-bezier(0.25,1,0.5,1)] ${
                   isPopular
-                    ? "bg-[var(--paper-raised)] dark:bg-[var(--paper-deep)] border-2 border-[var(--amber)] shadow-lg hover:-translate-y-1 hover:shadow-xl"
-                    : "bg-[var(--paper)] dark:bg-[var(--paper-raised)] border border-[var(--paper-line)] shadow-xs hover:border-[var(--amber)]/40 hover:-translate-y-1 hover:shadow-md"
+                    ? "bg-[var(--paper-raised)] dark:bg-[var(--paper-deep)] border-2 border-[var(--amber)] shadow-md hover:-translate-y-1.5 hover:shadow-2xl"
+                    : "bg-[var(--paper)] dark:bg-[var(--paper-raised)] border border-[var(--paper-line)] shadow-xs hover:border-[var(--amber)]/50 hover:-translate-y-1.5 hover:shadow-xl"
                 }`}
               >
                 {isPopular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 pointer-events-none">
                     <span className="px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-[var(--amber)] text-[var(--text-on-amber)] shadow-xs whitespace-nowrap">
                       Recommended for teams
                     </span>
@@ -141,7 +141,7 @@ export default function Pricing() {
 
                 <a
                   href="#cta"
-                  className={`w-full min-h-[48px] inline-flex justify-center items-center rounded-lg px-5 py-3 text-sm font-semibold active:scale-[0.98] transition-all cursor-pointer ${
+                  className={`w-full min-h-[48px] inline-flex justify-center items-center rounded-lg px-5 py-3 text-sm font-semibold active:scale-[0.98] transition-colors duration-200 cursor-pointer ${
                     isPopular
                       ? "bg-[var(--amber)] text-[var(--text-on-amber)] hover:bg-[var(--amber-deep)] shadow-xs"
                       : "border border-[var(--paper-line)] bg-[var(--paper-raised)]/60 text-[var(--ink)] hover:border-[var(--ink)]/40 hover:bg-[var(--paper-raised)]"
