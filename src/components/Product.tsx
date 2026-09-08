@@ -8,7 +8,7 @@ function getServiceIcon(service: string) {
   const s = service.toLowerCase();
   if (s.includes("github")) {
     return (
-      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <svg className="w-5 h-5 fill-current text-[#0969DA] dark:text-[#2F81F7]" viewBox="0 0 24 24" aria-hidden="true">
         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
       </svg>
     );
@@ -36,7 +36,7 @@ function getServiceIcon(service: string) {
   }
   if (s.includes("notion")) {
     return (
-      <svg className="w-5 h-5 fill-current text-[var(--ink)]" viewBox="0 0 24 24" aria-hidden="true">
+      <svg className="w-5 h-5 fill-current text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.83c-.466-.373-.979-.606-2.007-.513L2.733 2.39c-.42.046-.513.326-.373.56zm.606 3.639v13.623c0 .746.373 1.026 1.213.979l13.868-.793c.746-.047.933-.513.933-1.166V6.772c0-.653-.28-.979-.84-.933l-14.334.84c-.606.046-.84.373-.84.84zm12.655.886c.093.42 0 .84-.42.886l-.7.14v8.397c-.373.233-.793.373-1.213.373-.653 0-1.026-.28-1.586-.979l-4.48-6.904v6.857l1.353.327c.093.046.14.373 0 .466l-3.359.187c-.093 0-.187-.28-.093-.373l1.073-.327V9.693l-1.4-.14c-.093-.047-.046-.42.093-.466l3.593-.234 4.713 7.045V9.413l-1.26-.14c-.093-.047-.046-.42.094-.467z" />
       </svg>
     );
@@ -80,15 +80,17 @@ function getServiceColor(service: string) {
   const s = service.toLowerCase();
   if (s.includes("github")) {
     return {
-      bg: "bg-slate-100 dark:bg-slate-800/80",
-      border: "border-slate-300 dark:border-slate-700",
-      badge: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700",
+      bg: "bg-[#0969DA]/10 dark:bg-[#2F81F7]/15",
+      border: "border-[#0969DA]/25 dark:border-[#2F81F7]/30",
+      text: "text-[#0969DA] dark:text-[#2F81F7]",
+      badge: "bg-[#0969DA]/10 dark:bg-[#2F81F7]/15 text-[#0969DA] dark:text-[#2F81F7] border-[#0969DA]/25 dark:border-[#2F81F7]/30",
     };
   }
   if (s.includes("slack")) {
     return {
       bg: "bg-[#4A154B]/10 dark:bg-[#36C5F0]/10",
       border: "border-[#4A154B]/25 dark:border-[#36C5F0]/25",
+      text: "text-[#4A154B] dark:text-[#36C5F0]",
       badge: "bg-[#4A154B]/10 dark:bg-[#36C5F0]/10 text-[#4A154B] dark:text-[#36C5F0] border-[#4A154B]/20 dark:border-[#36C5F0]/20",
     };
   }
@@ -96,6 +98,7 @@ function getServiceColor(service: string) {
     return {
       bg: "bg-[#635BFF]/10",
       border: "border-[#635BFF]/25",
+      text: "text-[#635BFF]",
       badge: "bg-[#635BFF]/10 text-[#635BFF] border-[#635BFF]/25",
     };
   }
@@ -103,20 +106,23 @@ function getServiceColor(service: string) {
     return {
       bg: "bg-[#5E6AD2]/10",
       border: "border-[#5E6AD2]/25",
+      text: "text-[#5E6AD2]",
       badge: "bg-[#5E6AD2]/10 text-[#5E6AD2] border-[#5E6AD2]/25",
     };
   }
   if (s.includes("notion")) {
     return {
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/25",
-      badge: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25",
+      bg: "bg-amber-500/10 dark:bg-amber-400/15",
+      border: "border-amber-500/25 dark:border-amber-400/30",
+      text: "text-amber-600 dark:text-amber-400",
+      badge: "bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 border-amber-500/25 dark:border-amber-400/30",
     };
   }
   if (s.includes("hubspot")) {
     return {
       bg: "bg-[#FF7A59]/10",
       border: "border-[#FF7A59]/25",
+      text: "text-[#FF7A59]",
       badge: "bg-[#FF7A59]/10 text-[#FF7A59] border-[#FF7A59]/25",
     };
   }
@@ -124,6 +130,7 @@ function getServiceColor(service: string) {
     return {
       bg: "bg-teal/10",
       border: "border-teal/25",
+      text: "text-teal",
       badge: "bg-teal/10 text-teal border-teal/25",
     };
   }
@@ -131,6 +138,7 @@ function getServiceColor(service: string) {
     return {
       bg: "bg-[#632CA6]/10",
       border: "border-[#632CA6]/25",
+      text: "text-[#632CA6] dark:text-[#a87ffb]",
       badge: "bg-[#632CA6]/10 text-[#632CA6] dark:text-[#a87ffb] border-[#632CA6]/25",
     };
   }
@@ -138,12 +146,14 @@ function getServiceColor(service: string) {
     return {
       bg: "bg-[#06AC38]/10",
       border: "border-[#06AC38]/25",
+      text: "text-[#06AC38]",
       badge: "bg-[#06AC38]/10 text-[#06AC38] border-[#06AC38]/25",
     };
   }
   return {
     bg: "bg-[var(--amber)]/10",
     border: "border-[var(--amber)]/25",
+    text: "text-[var(--amber-deep)]",
     badge: "bg-[var(--amber)]/10 text-[var(--amber-deep)] border-[var(--amber)]/25",
   };
 }
@@ -277,7 +287,7 @@ export default function Product() {
                                 ? "bg-[var(--amber)]/15 border-[var(--amber)] text-[var(--amber-deep)] scale-105"
                                 : isNodePassed || simulationFinished
                                 ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-600 dark:text-emerald-400"
-                                : `${serviceColor.bg} ${serviceColor.border}`
+                                : `${serviceColor.bg} ${serviceColor.border} ${serviceColor.text || ""}`
                             }`}>
                               {getServiceIcon(node.service)}
                             </span>
