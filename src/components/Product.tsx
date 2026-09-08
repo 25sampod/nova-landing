@@ -76,6 +76,78 @@ function getServiceIcon(service: string) {
   );
 }
 
+function getServiceColor(service: string) {
+  const s = service.toLowerCase();
+  if (s.includes("github")) {
+    return {
+      bg: "bg-slate-100 dark:bg-slate-800/80",
+      border: "border-slate-300 dark:border-slate-700",
+      badge: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700",
+    };
+  }
+  if (s.includes("slack")) {
+    return {
+      bg: "bg-[#4A154B]/10 dark:bg-[#36C5F0]/10",
+      border: "border-[#4A154B]/25 dark:border-[#36C5F0]/25",
+      badge: "bg-[#4A154B]/10 dark:bg-[#36C5F0]/10 text-[#4A154B] dark:text-[#36C5F0] border-[#4A154B]/20 dark:border-[#36C5F0]/20",
+    };
+  }
+  if (s.includes("stripe")) {
+    return {
+      bg: "bg-[#635BFF]/10",
+      border: "border-[#635BFF]/25",
+      badge: "bg-[#635BFF]/10 text-[#635BFF] border-[#635BFF]/25",
+    };
+  }
+  if (s.includes("linear")) {
+    return {
+      bg: "bg-[#5E6AD2]/10",
+      border: "border-[#5E6AD2]/25",
+      badge: "bg-[#5E6AD2]/10 text-[#5E6AD2] border-[#5E6AD2]/25",
+    };
+  }
+  if (s.includes("notion")) {
+    return {
+      bg: "bg-amber-500/10",
+      border: "border-amber-500/25",
+      badge: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25",
+    };
+  }
+  if (s.includes("hubspot")) {
+    return {
+      bg: "bg-[#FF7A59]/10",
+      border: "border-[#FF7A59]/25",
+      badge: "bg-[#FF7A59]/10 text-[#FF7A59] border-[#FF7A59]/25",
+    };
+  }
+  if (s.includes("security") || s.includes("test")) {
+    return {
+      bg: "bg-teal/10",
+      border: "border-teal/25",
+      badge: "bg-teal/10 text-teal border-teal/25",
+    };
+  }
+  if (s.includes("datadog")) {
+    return {
+      bg: "bg-[#632CA6]/10",
+      border: "border-[#632CA6]/25",
+      badge: "bg-[#632CA6]/10 text-[#632CA6] dark:text-[#a87ffb] border-[#632CA6]/25",
+    };
+  }
+  if (s.includes("pagerduty")) {
+    return {
+      bg: "bg-[#06AC38]/10",
+      border: "border-[#06AC38]/25",
+      badge: "bg-[#06AC38]/10 text-[#06AC38] border-[#06AC38]/25",
+    };
+  }
+  return {
+    bg: "bg-[var(--amber)]/10",
+    border: "border-[var(--amber)]/25",
+    badge: "bg-[var(--amber)]/10 text-[var(--amber-deep)] border-[var(--amber)]/25",
+  };
+}
+
 export default function Product() {
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>(workflowScenarios[0].id);
   const [simulatingStep, setSimulatingStep] = useState<number | null>(null);
@@ -135,10 +207,10 @@ export default function Product() {
                     setSimulatingStep(null);
                     setSimulationFinished(false);
                   }}
-                  className={`px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap cursor-pointer min-h-[40px] flex items-center gap-2 select-none active:scale-[0.98] ${
+                  className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer min-h-[44px] flex items-center gap-2 select-none active:scale-[0.98] ${
                     isActive
-                      ? "bg-[var(--paper)] text-[var(--ink)] shadow-xs font-semibold"
-                      : "text-[var(--ink)]/65 hover:text-[var(--ink)]"
+                      ? "bg-[var(--amber)] text-[var(--text-on-amber)] shadow-xs font-semibold"
+                      : "text-[var(--ink)]/65 hover:text-[var(--ink)] hover:bg-[var(--paper-line)]/50"
                   }`}
                 >
                   <span>{scenario.name}</span>
@@ -153,7 +225,10 @@ export default function Product() {
           <div className="rounded-2xl border border-[var(--paper-line)] bg-[var(--paper-raised)] p-5 sm:p-7 md:p-8 lg:p-9 shadow-sm">
             {/* Scenario Summary Line */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 mb-5 sm:mb-7 border-b border-[var(--paper-line)]">
-              <div>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-[var(--amber)]/10 text-[var(--amber-deep)] border border-[var(--amber)]/20">
+                  {activeScenario.badge}
+                </span>
                 <p className="text-sm font-medium text-[var(--ink)]">
                   {activeScenario.description}
                 </p>
@@ -163,7 +238,7 @@ export default function Product() {
                 type="button"
                 onClick={handleTestRun}
                 disabled={isSimulating}
-                className="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-[var(--paper)] border border-[var(--paper-line)] hover:border-[var(--amber)]/60 text-xs font-medium text-[var(--ink)] transition-all active:scale-95 cursor-pointer shadow-xs disabled:opacity-60 shrink-0 self-start sm:self-auto min-h-[38px]"
+                className="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-[var(--amber)]/10 border border-[var(--amber)]/25 hover:bg-[var(--amber)] hover:text-[var(--text-on-amber)] text-xs font-semibold text-[var(--amber-deep)] transition-all active:scale-95 cursor-pointer shadow-xs disabled:opacity-60 shrink-0 self-start sm:self-auto min-h-[38px]"
               >
                 <span className={`w-2 h-2 rounded-full ${isSimulating ? "bg-[var(--amber)] animate-ping" : simulationFinished ? "bg-emerald-500" : "bg-[var(--amber)]"}`} />
                 <span>{isSimulating ? `Running step ${(simulatingStep ?? 0) + 1}...` : simulationFinished ? "Workflow completed" : "Simulate workflow"}</span>
@@ -180,11 +255,12 @@ export default function Product() {
               {activeScenario.nodes.map((node, index) => {
                 const isNodeActive = simulatingStep === index;
                 const isNodePassed = simulatingStep !== null && simulatingStep > index;
+                const serviceColor = getServiceColor(node.service);
 
                 return (
                   <div key={node.id} className="relative flex flex-col">
                     <div
-                      className={`rounded-xl border bg-[var(--paper)] dark:bg-[var(--paper-deep)] p-4 sm:p-5 transition-all duration-300 flex flex-col shadow-xs ${
+                      className={`rounded-xl border bg-[var(--paper)] dark:bg-[var(--paper-deep)] p-4 sm:p-5 transition-all duration-300 flex flex-col justify-between h-full shadow-xs ${
                         isNodeActive
                           ? "border-[var(--amber)] ring-2 ring-[var(--amber)]/40 bg-[var(--paper-raised)] dark:bg-[var(--paper-deep)] scale-[1.02] shadow-md"
                           : isNodePassed || simulationFinished
@@ -192,49 +268,54 @@ export default function Product() {
                           : "border-[var(--paper-line)] hover:border-[var(--amber)]/40 hover:-translate-y-0.5 hover:shadow-sm"
                       }`}
                     >
-                      {/* Service Icon, Name & Status Badge */}
-                      <div className="flex items-center justify-between gap-2.5 mb-3 min-h-[32px]">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <span className={`w-8 h-8 rounded-lg bg-[var(--paper-raised)] border flex items-center justify-center text-[var(--ink)] shrink-0 shadow-2xs transition-colors duration-300 ${
-                            isNodeActive
-                              ? "border-[var(--amber)] text-[var(--amber-deep)]"
-                              : isNodePassed || simulationFinished
-                              ? "border-emerald-500/40 text-emerald-600 dark:text-emerald-400"
-                              : "border-[var(--paper-line)]"
-                          }`}>
-                            {getServiceIcon(node.service)}
-                          </span>
-                          <span className="text-xs font-semibold text-[var(--ink)]/85 truncate">
-                            {node.service}
-                          </span>
+                      {/* Service Icon, Name & Step Badge */}
+                      <div>
+                        <div className="flex items-center justify-between gap-2.5 mb-3 min-h-[32px]">
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <span className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 shadow-2xs transition-all duration-300 ${
+                              isNodeActive
+                                ? "bg-[var(--amber)]/15 border-[var(--amber)] text-[var(--amber-deep)] scale-105"
+                                : isNodePassed || simulationFinished
+                                ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-600 dark:text-emerald-400"
+                                : `${serviceColor.bg} ${serviceColor.border}`
+                            }`}>
+                              {getServiceIcon(node.service)}
+                            </span>
+                            <span className="text-xs font-semibold text-[var(--ink)]/90 truncate">
+                              {node.service}
+                            </span>
+                          </div>
+
+                          {/* Live Step Status Pill or Step Tag */}
+                          {isNodeActive ? (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[var(--amber)]/15 text-[var(--amber-deep)] border border-[var(--amber)]/30 animate-fade-in shrink-0">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--amber)] animate-ping" />
+                              Running
+                            </span>
+                          ) : isNodePassed || simulationFinished ? (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 animate-fade-in shrink-0">
+                              <svg className="w-3 h-3 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                              Done
+                            </span>
+                          ) : (
+                            <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-medium border ${serviceColor.badge} shrink-0`}>
+                              {node.stepLabel}
+                            </span>
+                          )}
                         </div>
 
-                        {/* Live Step Status Pill */}
-                        {isNodeActive && (
-                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--amber)]/10 text-[var(--amber-deep)] border border-[var(--amber)]/20 animate-fade-in shrink-0">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--amber)] animate-ping" />
-                            Running
-                          </span>
-                        )}
-                        {(isNodePassed || simulationFinished) && (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 animate-fade-in shrink-0">
-                            <svg className="w-3 h-3 text-emerald-500 animate-draw-check" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            Done
-                          </span>
-                        )}
+                        {/* Title */}
+                        <h3 className="font-display text-sm font-semibold text-[var(--ink)] leading-snug">
+                          {node.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-xs text-[var(--ink)]/65 leading-relaxed mt-1.5">
+                          {node.summary}
+                        </p>
                       </div>
-
-                      {/* Title */}
-                      <h3 className="font-display text-sm font-semibold text-[var(--ink)] leading-snug">
-                        {node.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-xs text-[var(--ink)]/65 leading-relaxed mt-1.5">
-                        {node.summary}
-                      </p>
                     </div>
 
                     {/* Desktop Connector Arrow */}
