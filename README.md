@@ -111,7 +111,7 @@ Here is a preview of the responsive layout across different screen sizes:
 
 ## Live demo URL
 
-The landing page is live and deployed at: `<a href= "https://nova.sampod.site">`
+The landing page is live and deployed at: <a href= "https://nova.sampod.site">
 
 ## AI tools used
 
