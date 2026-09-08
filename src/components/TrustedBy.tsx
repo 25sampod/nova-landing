@@ -1,5 +1,3 @@
-import Reveal from "./Reveal";
-
 interface CompanyLogo {
   name: string;
   url: string;
@@ -111,8 +109,7 @@ const companies: CompanyLogo[] = [
 export default function TrustedBy() {
   return (
     <section className="overflow-hidden border-y border-[var(--paper-line)] py-8 sm:py-10 bg-[var(--paper)]">
-      <Reveal className="w-full">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 mb-4 sm:mb-5 flex items-center justify-between">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 mb-4 sm:mb-5 flex items-center justify-between">
         <span className="text-[11px] sm:text-xs uppercase tracking-widest font-mono text-[var(--ink)]/50 font-medium truncate pr-2">
           Trusted by high-velocity engineering teams worldwide
         </span>
@@ -154,7 +151,6 @@ export default function TrustedBy() {
           ))}
         </div>
       </div>
-      </Reveal>
     </section>
   );
 }
