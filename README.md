@@ -98,6 +98,7 @@ Here is a preview of the responsive layout across different screen sizes:
 
 ![Desktop hero](./screenshots/desktop-hero.png)
 ![Mobile view](./screenshots/mobile-view.png)
+![Tablet View](./screenshots/mobile-tab.png)
 
 ## Live demo URL
 
