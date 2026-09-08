@@ -24,8 +24,8 @@ For NOVA, we deliberately moved away from these clichés:
 ### 1.2 Dual-Theme Token Architecture
 We built a resilient, high-contrast dark/light theme engine using pure CSS Custom Properties:
 - **Zero Flash of Unstyled Theme (FOUT)**: The theme provider reads from `localStorage` and falls back gracefully to `window.matchMedia('(prefers-color-scheme: dark)')`.
-- **Scoped Subtree Theming**: Inverted sections (such as `.on-ink` in the Product showcase, Testimonials, and Final CTA) override custom property definitions locally. This guarantees that whether the user is browsing in light or dark mode, nested components, code snippets, and badge pills maintain WCAG AAA contrast ratios without conflicting with global tokens.
-- **Button Contrast Discipline**: Buttons styled with the amber accent always render with dark text (`#0b0d13`), guaranteeing minimum contrast ratios exceeding 7.2:1 against amber in both modes.
+- **Scoped Subtree Theming**: Inverted sections (such as `.on-ink` in the Product showcase, Testimonials, and Final CTA) override custom property definitions locally. This guarantees that whether the user is browsing in light or dark mode, nested components, code snippets, and badge pills maintain clear readability without conflicting with global tokens.
+- **Button Contrast Discipline**: Buttons styled with the amber accent always render with dark text (`#0b0d13`), guaranteeing crisp legibility against amber in both modes.
 
 ---
 
@@ -45,7 +45,7 @@ We built a resilient, high-contrast dark/light theme engine using pure CSS Custo
 
 ### 2.4 Zero Heavy Third-Party UI Kits
 - We intentionally avoided bulky component libraries like Radix, MUI, Ant Design, or Lucide-React.
-- Every modal, accordion, dropdown, carousel, and form was constructed from first principles using semantic HTML, native React hooks, and standard ARIA attributes. This keeps the production JavaScript bundle featherweight (< 120 kB first load JS) and completely eliminates external dependency vulnerabilities.
+- Every modal, accordion, dropdown, carousel, and form was constructed from first principles using clean HTML and native React hooks. This keeps the production JavaScript bundle featherweight (< 120 kB first load JS) and completely eliminates external dependency vulnerabilities.
 
 ---
 
@@ -64,7 +64,7 @@ src/
 ├── components/
 │   ├── BackToTop.tsx             # Floating back-to-top button with window scroll listener
 │   ├── DemoModal.tsx             # Interactive 3-step product simulation modal with focus trap
-│   ├── FAQ.tsx                   # Accessible accordion with ARIA attributes
+│   ├── FAQ.tsx                   # Clean interactive accordion
 │   ├── Features.tsx              # Flagship highlight card + 6-card hairline grid
 │   ├── FinalCTA.tsx              # Conversion block embedding WaitlistForm
 │   ├── Footer.tsx                # 4-column footer with links, copyright, and status badge
@@ -90,13 +90,13 @@ src/
 | Bonus Feature | Implementation Details | Key Technical Highlights |
 |---|---|---|
 | **1. Dark / Light Mode** | `ThemeProvider.tsx`, `Navbar.tsx`, `globals.css` | Persistent in `localStorage`, syncs with `prefers-color-scheme`, zero theme flash, `scrollbar-gutter: stable`, scoped `.on-ink` palette rules. |
-| **2. Testimonial Carousel** | `Testimonials.tsx`, `content.ts` | 5 verified reviews. Native touch swipe gestures (`onTouchStart`/`onTouchEnd`), auto-rotation (6s) with pause on hover/focus, keyboard arrows (`←`/`→`), accessible dot pagination. |
+| **2. Testimonial Carousel** | `Testimonials.tsx`, `content.ts` | 5 verified reviews. Native touch swipe gestures (`onTouchStart`/`onTouchEnd`), auto-rotation (6s) with pause on hover, navigation arrows, and dot pagination. |
 | **3. Monthly/Annual Pricing Toggle** | `Pricing.tsx` | Interactive billing switch with 20% annual discount calculation. `min-h-[4.25rem]` price container and reserved `h-4` billing slots prevent Cumulative Layout Shift (CLS = 0). |
-| **4. Interactive Product Demo Modal** | `DemoModal.tsx`, `Hero.tsx` | Accessible dialog (`role="dialog"`, `aria-modal="true"`, focus trapping with auto-restore, `Escape` listener, body scroll lock). Multi-step simulation runner with real-time progression. |
-| **5. Newsletter / Waitlist Validation** | `WaitlistForm.tsx`, `/api/waitlist/route.ts` | Client-side real-time RFC regex check, disabled states during submission, live region announcements (`aria-live="polite"`), backed by a Next.js Server Route Handler. |
+| **4. Interactive Product Demo Modal** | `DemoModal.tsx`, `Hero.tsx` | Interactive modal with focus handling, `Escape` listener, and body scroll lock. Multi-step simulation runner with real-time progression. |
+| **5. Newsletter / Waitlist Validation** | `WaitlistForm.tsx`, `/api/waitlist/route.ts` | Client-side real-time RFC regex check, disabled states during submission, real-time status feedback, backed by a Next.js Server Route Handler. |
 | **6. Animated Statistics** | `Hero.tsx`, `Stats.tsx` | Hero checklist tick-in animation and visual metric counters highlighting key customer ROI figures. |
 | **7. Scroll Animations** | `Hero.tsx`, `globals.css` | Draw-check SVG path animations, smooth scroll offset anchors, and entrance transitions. |
-| **8. Back-to-Top Button** | `BackToTop.tsx` | Throttled scroll position listener showing a floating button past 800px; smooth window scroll to top with full keyboard accessibility. |
+| **8. Back-to-Top Button** | `BackToTop.tsx` | Throttled scroll position listener showing a floating button past 800px; smooth window scroll to top. |
 
 ---
 
@@ -129,8 +129,8 @@ In accordance with academic integrity and assignment guidelines, here is a trans
 - **Copywriting**: Generated realistic corporate placeholder copy for the fictional NOVA productivity platform.
 - **Human Verification & Critical Refactoring**:
   - *Rejected Defaults*: Rejected initial suggestions for purple/cyan gradient backgrounds and floating shadow cards in favor of the custom ink/paper/amber hairline grid.
-  - *Accessibility Auditing*: Manually reviewed and corrected missing `aria-expanded`, `aria-controls`, and `role="region"` bindings on accordion headers.
-  - *Color Contrast Calculations*: Ran contrast ratio audits on dark mode surfaces, fixing low-contrast text tokens.
+  - *Component Auditing*: Manually reviewed and refined interactive behaviors, accordion state toggling, and modal lifecycles.
+  - *Theme & Styling Refinement*: Refined dark mode surfaces, fixing text colors and border balance across themes.
   - *State & Layout Shift Debugging*: Identified and fixed the CLS issue on the pricing switch and the missing `localStorage` hydration guard in the theme provider.
 
 ---

@@ -39,4 +39,5 @@ npm run dev
 The landing page is live and deployed at: **[https://nova.sampod.site](https://nova.sampod.site)**
 
 ## AI tools used
-Built with assistance from **Claude** to scaffold the structure, draft markup, and write placeholder copy. See `EXPLANATION.md` for a detailed breakdown of design decisions, architecture, and engineering challenges.
+ **Claude** 
+ **Gemini**
