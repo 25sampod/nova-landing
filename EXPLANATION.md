@@ -41,5 +41,3 @@ This document outlines the core design rationale, technology choices, architectu
 ## 5. How AI Tools Were Used
 
 - **Tools Used**: **Claude** and **Gemini**.
-- **Scaffolding & Copy**: Used to scaffold initial file structure, draft layout components, and generate realistic placeholder copy.
-- **Human Review & Refinement**: All generated code was actively reviewed, refactored, and tested—rejecting generic styling defaults, tuning mobile breakpoints, fixing layout shifts, and perfecting component interactions.
