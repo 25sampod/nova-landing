@@ -10,13 +10,10 @@ NOVA is a marketing landing page built to feel like a real enterprise product ra
 - **TypeScript**
 - **Tailwind CSS v4**
 
-*No third-party component libraries or UI kits were used. Every section is a hand-built component.*
-
 ## Features
 - **All 13 required sections** implemented.
 - **All 8 bonus features** implemented (Dark/Light mode, Testimonial carousel, Pricing toggle, Demo modal, Newsletter API validation, Animated statistics, Scroll animations, Back-to-top button).
 - **Responsive design** across mobile, tablet, and desktop.
-- **Accessible** (ARIA labels, keyboard navigation, WCAG contrast).
 
 ## Installation instructions
 ```bash
